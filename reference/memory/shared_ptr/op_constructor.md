@@ -50,7 +50,7 @@ shared_ptr(auto_ptr<Y>&& r);                             // (13)
 template <class Y, class Deleter>
 shared_ptr(unique_ptr<Y, Deleter>&& r);                  // (14)
 
-constexpr shared_ptr(nullptr_t);                         // (15)
+constexpr shared_ptr(nullptr_t) noexcept : shared_ptr() { } // (15)
 
 template <class Y>
 shared_ptr(shared_ptr<Y>&& r, element_type* p) noexcept; // (16) C++20
